@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" });
 
 mongoose
-  .connect(
-    "mongodb+srv://Fabrice:Fabrice12@cluster0.bnhnfjq.mongodb.net/review_app?retryWrites=true&w=majority"
-  )
+  .connect(process.env.DATABASE)
   .then(() => {
     console.log("DB is connected");
   })

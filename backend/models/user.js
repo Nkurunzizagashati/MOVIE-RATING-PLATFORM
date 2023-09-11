@@ -18,6 +18,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isVerified: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
 userSchema.pre("save", async function (next) {
@@ -27,5 +32,10 @@ userSchema.pre("save", async function (next) {
 
   next();
 });
+
+userSchema.methods.comparePasswords = async function (newPassword) {
+  const result = await bcrypt.compare(newPassword, this.password);
+  return result;
+};
 
 module.exports = mongoose.model("User", userSchema);
