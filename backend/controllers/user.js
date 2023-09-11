@@ -190,7 +190,7 @@ exports.resetPassword = async (req, res) => {
   user.password = newPassword;
   await user.save();
 
-  await PasswordResetToken.findByIdAndDelete(req.resetPassword._id);
+  await PasswordResetToken.findByIdAndDelete(req.resetToken._id);
 
   var transport = generateMailTransporter();
 

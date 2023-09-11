@@ -13,7 +13,7 @@ exports.userValidator = [
 ];
 
 exports.validatePassword = [
-  check("password")
+  check("newPassword")
     .trim()
     .not()
     .isEmpty()
