@@ -17,6 +17,6 @@ exports.generateMailTransporter = () =>
     port: 2525,
     auth: {
       user: process.env.MAIL_TRAP_USER,
-      pass: process.env.MAIL_TRAP_PASSWORD,
+      pass: process.env.MAIL_TRAP_PASS,
     },
   });
